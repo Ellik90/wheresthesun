@@ -1,9 +1,5 @@
 
-require('dotenv').config();
-
-const apiKey = process.env.API_KEY;
-
-
+import { API_KEY } from "./config.js";
 
 fetchWeatherData('Stockholm');
 
@@ -18,7 +14,7 @@ searchForm.addEventListener('submit', function (event) {
 });
 
 function fetchWeatherData(city) {
-  fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`)
+  fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}`)
     .then(response => response.json())
     .then(data => {
       displayWeatherInfo(data);
